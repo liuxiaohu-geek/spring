@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+
+    <beans>
+        <bean id="userService" class="indi.spider.spring.framework.service.impl.UserServiceImpl">
+
+        </bean>
+
+        <bean id="userController" class="indi.spider.spring.framework.controller.UserController">
+            <constructor-arg name="userService" ref="userService"></constructor-arg>
+        </bean>
+
+        <bean id="userController2" class="indi.spider.spring.framework.controller.UserController">
+            <constructor-arg type="int" value="20"></constructor-arg>
+            <constructor-arg type="java.lang.String" value="spider"></constructor-arg>
+        </bean>
+
+        <bean id="accountController" class="indi.spider.spring.framework.controller.AccountController">
+            <constructor-arg name="user_name" value="liuxiaohu"/>
+            <constructor-arg name="age" value="23"/>
+        </bean>
+
+    </beans>
+</beans>
